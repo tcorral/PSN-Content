@@ -1,13 +1,15 @@
 <!-- Coded for PS3™ Pro by Luan Teles -->
 <html>
+
 <head>
-     <title>PlayStation&trade; Network Database</title>
+	<title>PlayStation&trade; Network Database</title>
 </head>
 <script>
-    javascript:window.resizeTo(screen.width,screen.height)
+	javascript: window.resizeTo(screen.width, screen.height)
 </script>
 <style>
-	html, body {
+	html,
+	body {
 		margin: 0;
 		padding: 0;
 		height: 100%;
@@ -17,7 +19,7 @@
 		font-family: Arial, sans-serif;
 		text-align: center;
 	}
-	
+
 	header {
 		position: fixed;
 		top: 0;
@@ -33,7 +35,7 @@
 		display: block;
 		z-index: 2;
 	}
-	
+
 	header a {
 		font-size: 3em;
 		color: #ffffff;
@@ -41,27 +43,26 @@
 		font-weight: bold;
 		display: block;
 	}
-	
+
 	header a:hover {
 		color: #66ccff;
 	}
-	
+
 	#selection-menu {
 		position: fixed;
 		top: 128px;
 		left: 0;
 		right: 0;
 		height: 28px;
-		background: rgba(0,0,0,0.0);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 10px;
+		background: rgba(0, 0, 0, 0.0);
+		text-align: center;
 		z-index: 6;
 		font-size: 1em;
+		line-height: 28px;
 	}
 
 	#selection-menu label {
+		display: inline-block;
 		color: #fff;
 		font-weight: bold;
 		margin-left: 10px;
@@ -69,17 +70,20 @@
 		cursor: pointer;
 	}
 
-	#selection-menu label:hover { color: #66ccff; }
+	#selection-menu label:hover {
+		color: #66ccff;
+	}
 
 	#selection-menu input[type="checkbox"] {
 		margin-right: 5px;
 		cursor: pointer;
+		vertical-align: middle;
 	}
-	
+
 	form {
 		margin: 10px auto;
 	}
-	
+
 	input[type="search"],
 	input[type="submit"],
 	input[type="button"] {
@@ -89,19 +93,20 @@
 		border: 1px solid #aaa;
 		border-radius: 5px;
 		cursor: pointer;
+		vertical-align: middle;
 	}
-	
+
 	input[type="submit"],
 	input[type="button"] {
 		color: #fff;
 		margin-left: 5px;
 	}
-	
+
 	input[type="search"] {
 		width: 250px;
 		color: lightblue;
 	}
-	
+
 	button {
 		margin: 2px;
 		background: rgba(0, 0, 0, 0.6);
@@ -111,23 +116,23 @@
 		font-size: 1em;
 		padding: 3px 6px;
 	}
-	
+
 	button:hover {
 		background: rgba(255, 255, 255, 0.1);
 	}
-	
+
 	#main.table {
 		display: table;
 		width: 100%;
 		height: 100%;
 		table-layout: fixed;
 	}
-	
+
 	.table-cell {
 		display: table-cell;
 		vertical-align: top;
 	}
-	
+
 	.sidebar {
 		position: fixed;
 		top: 150px;
@@ -141,7 +146,7 @@
 		border-right: 2px solid #888;
 		z-index: 3;
 	}
-	
+
 	.is-ps3 .sidebar-top-border {
 		position: fixed;
 		top: 152px;
@@ -154,7 +159,7 @@
 		margin-left: -7px;
 		z-index: 4;
 	}
-	
+
 	.is-pc .sidebar-top-border {
 		position: fixed;
 		top: 152px;
@@ -168,85 +173,90 @@
 		z-index: 4;
 	}
 
-    .sidebar-right {
-        position: fixed;
-        top: 150px;
-        bottom: 0;
-        right: 0;
-        width: 80px;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.6);
-        padding: 0 5px 5px 5px;
-        box-sizing: border-box;
-        border-left: 2px solid #888;
-        z-index: 3;
-    }
+	.sidebar-right {
+		position: fixed;
+		top: 150px;
+		bottom: 0;
+		right: 0;
+		width: 80px;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.6);
+		padding: 0 5px 5px 5px;
+		box-sizing: border-box;
+		border-left: 2px solid #888;
+		z-index: 3;
+	}
 
-    .is-ps3 .sidebar-right-top-border {
-        position: fixed;
-        top: 152px;
-        right: 5px;
-        width: 90px;
-        height: 2px;
-        background: rgba(7, 5, 60, 0.7);
-        margin-top: -2px;
-        margin-right: -7px;
-        z-index: 4;
-    }
-	
+	.is-ps3 .sidebar-right-top-border {
+		position: fixed;
+		top: 152px;
+		right: 5px;
+		width: 90px;
+		height: 2px;
+		background: rgba(7, 5, 60, 0.7);
+		margin-top: -2px;
+		margin-right: -7px;
+		z-index: 4;
+	}
+
 	.is-pc .sidebar-right-top-border {
-        position: fixed;
-        top: 152px;
-        right: -5px;
-        width: 90px;
-        height: 2px;
-        background: rgba(7, 5, 60, 0.7);
-        margin-top: -2px;
-        margin-right: -7px;
-        z-index: 4;
-    }
+		position: fixed;
+		top: 152px;
+		right: -5px;
+		width: 90px;
+		height: 2px;
+		background: rgba(7, 5, 60, 0.7);
+		margin-top: -2px;
+		margin-right: -7px;
+		z-index: 4;
+	}
 
-    .sidebar ul, .sidebar-right ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+	.sidebar ul,
+	.sidebar-right ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 
-    .sidebar ul li, .sidebar-right ul li {
-        margin: 5px 0;
-    }
+	.sidebar ul li,
+	.sidebar-right ul li {
+		margin: 5px 0;
+	}
 
-    .sidebar ul li a, .sidebar-right ul li a {
-        text-decoration: underline;
-        display: block;
-        color: #ffffff;
-    }
+	.sidebar ul li a,
+	.sidebar-right ul li a {
+		text-decoration: underline;
+		display: block;
+		color: #ffffff;
+	}
 
-    .sidebar ul li a:hover, .sidebar-right ul li a:hover {
-        color: #ffff00;
-    }
+	.sidebar ul li a:hover,
+	.sidebar-right ul li a:hover {
+		color: #ffff00;
+	}
 
-    .sidebar ul li a:active, .sidebar-right ul li a:active {
-        color: #0000ff;
-    }
+	.sidebar ul li a:active,
+	.sidebar-right ul li a:active {
+		color: #0000ff;
+	}
 
-    .sidebar-right ul li label {
-        display: block;
-        color: #ffffff;
-        cursor: pointer;
-        font-weight: bold;
-        margin: 2px 0;
-    }
+	.sidebar-right ul li label {
+		display: block;
+		color: #ffffff;
+		cursor: pointer;
+		font-weight: bold;
+		margin: 2px 0;
+	}
 
-    .sidebar-right ul li label:hover {
-        color: #66ccff;
-    }
+	.sidebar-right ul li label:hover {
+		color: #66ccff;
+	}
 
-    .sidebar-right ul li input[type="checkbox"] {
-        margin-right: 5px;
-        cursor: pointer;
-    }
-	
+	.sidebar-right ul li input[type="checkbox"] {
+		margin-right: 5px;
+		cursor: pointer;
+	}
+
 	.sidebar-heading-left {
 		color: #FFFFFF;
 		font-weight: bold;
@@ -254,7 +264,7 @@
 		margin-top: 0px;
 		text-align: center;
 	}
-	
+
 	.sidebar-heading-right {
 		color: #FFFFFF;
 		font-weight: bold;
@@ -262,181 +272,189 @@
 		margin-top: 22px;
 		text-align: center;
 	}
-	
-    #letters {
-        margin-top: 10px;
-    }
 
-    #letters a {
-        width: 100%;
-        text-align: center;
-        margin: 2px 0;
-        display: block;
-        color: #ffffff;
+	#letters {
+		margin-top: 10px;
+	}
+
+	#letters a {
+		width: 100%;
+		text-align: center;
+		margin: 2px 0;
+		display: block;
+		color: #ffffff;
 		text-decoration: underline;
-    }
-	
-	#letters a.active, #region-links a.active {
-        color: #66ccff;
-        text-decoration: underline;
+	}
+
+	#letters a.active,
+	#region-links a.active {
+		color: #66ccff;
+		text-decoration: underline;
 		font-weight: bold;
-    }
-	
+	}
+
 	#letters a:hover {
 		color: #ffff00;
 	}
-	
-    #license-links {
-        margin-top: 20px;
-    }
-	
+
+	#license-links {
+		margin-top: 20px;
+	}
+
 	#region-links {
-        margin-top: 10px;
-    }
+		margin-top: 10px;
+	}
 
 	#region-links a {
-        width: 100%;
-        text-align: center;
-        margin: 2px 0;
-        display: block;
-        color: #ffffff;
-    }
+		width: 100%;
+		text-align: center;
+		margin: 2px 0;
+		display: block;
+		color: #ffffff;
+	}
 
-    #license-links a {
-        width: 100%;
-        text-align: center;
-        margin: 2px 0;
-        display: block;
-        color: #ffffff;
-    }
+	#license-links a {
+		width: 100%;
+		text-align: center;
+		margin: 2px 0;
+		display: block;
+		color: #ffffff;
+	}
 
-    .content {
-        padding-right: 0px;
-        text-align: center;
-    }
+	.content {
+		padding-right: 0px;
+		width: 100%;
+	}
 
-    #list {
+	#list {
 		position: absolute;
 		top: 170px;
 		left: 80px;
 		right: 80px;
 		width: auto;
 		padding: 10px;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-		gap: 8px;
-		justify-items: center;
 		text-align: center;
 		font-size: 1em;
 		z-index: 1;
 	}
 
-    .game-tile {
-        background: rgba(0, 0, 0, 0.6);
-        border: 1px solid #888;
-        border-radius: 6px;
-        padding: 8px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: 130px;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-
-    .game-tile:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: #66ccff;
-        transform: translateY(-2px);
-    }
-
-    .game-tile img {
-		min-width: 110px;
-        min-height: 110px;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 4px;
-    }
-
-    .game-tile .title {
-        font-weight: bold;
-        color: #fff;
-        margin-bottom: 2px;
-        text-align: center;
-        font-size: 0.7em;
-        line-height: 1.1;
-        max-width: 115px;
-        word-wrap: break-word;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .game-tile .title-id {
-        color: #aaa;
-        font-size: 0.6em;
-        margin-bottom: 3px;
-    }
-
-    .game-tile .file-size {
-        color: #aaaaaa;
-        font-size: 0.6em;
-        margin-bottom: 4px;
-    }
-
-    .game-tile .download-links {
-        display: flex;
-        gap: 2px;
-        flex-wrap: wrap;
-        justify-content: center;
-        font-size: 0.65em;
-    }
-
-    .game-tile a {
-        text-decoration: none;
-        color: #fff;
-        padding: 1px 3px;
-        border-radius: 2px;
-    }
-
-    .game-tile a:hover {
-        text-decoration: underline;
-        color: #66ccff;
-        background: rgba(102, 204, 255, 0.2);
-    }
-
-    [download] {
-        background: #fff;
-        color: #000 !important;
-        padding: 2px 6px;
-        margin-left: 10px;
-        text-decoration: none;
-        border-radius: 3px;
-        font-size: 0.9em;
+	.game-tile {
+		background: rgba(0, 0, 0, 0.6);
+		border: 1px solid #888;
+		border-radius: 6px;
+		padding: 8px;
+		display: inline-block;
+		vertical-align: top;
+		width: 130px;
+		margin: 4px;
+		transition: all 0.3s ease;
+		cursor: pointer;
+		position: relative;
 	}
-	
+
+	.region-flag {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 24px;
+		height: 16px;
+		background-size: cover;
+		background-position: center;
+		border-bottom-left-radius: 4px;
+		border-top-right-radius: 5px;
+		box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5);
+		z-index: 10;
+	}
+
+	.game-tile:hover {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: #66ccff;
+		transform: translateY(-2px);
+	}
+
+	.game-tile img {
+		min-width: 110px;
+		min-height: 110px;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		border-radius: 4px;
+	}
+
+	.game-tile .title {
+		font-weight: bold;
+		color: #fff;
+		margin-bottom: 2px;
+		text-align: center;
+		font-size: 0.7em;
+		line-height: 1.1;
+		max-width: 115px;
+		word-wrap: break-word;
+		overflow: hidden;
+		height: 2.2em;
+		/* Approximate 2 lines */
+	}
+
+	.game-tile .title-id {
+		color: #aaa;
+		font-size: 0.6em;
+		margin-bottom: 3px;
+	}
+
+	.game-tile .file-size {
+		color: #aaaaaa;
+		font-size: 0.6em;
+		margin-bottom: 4px;
+	}
+
+	.game-tile .download-links {
+		font-size: 0.65em;
+		text-align: center;
+	}
+
+	.game-tile a {
+		display: inline-block;
+		text-decoration: none;
+		color: #fff;
+		padding: 1px 3px;
+		border-radius: 2px;
+		margin: 1px;
+	}
+
+	.game-tile a:hover {
+		text-decoration: underline;
+		color: #66ccff;
+		background: rgba(102, 204, 255, 0.2);
+	}
+
+	[download] {
+		background: #fff;
+		color: #000 !important;
+		padding: 2px 6px;
+		margin-left: 10px;
+		text-decoration: none;
+		border-radius: 3px;
+		font-size: 0.9em;
+	}
+
 	#icon {
 		width: 64px;
 		height: auto;
 		margin: 10px auto;
 	}
-	
+
 	::-webkit-scrollbar {
 		width: 8px;
 	}
-	
+
 	::-webkit-scrollbar-track {
 		background: transparent;
 	}
-	
+
 	::-webkit-scrollbar-thumb {
 		background: #aaa;
 	}
-	
+
 	#backToTop {
 		position: fixed;
 		bottom: 20px;
@@ -450,516 +468,851 @@
 		cursor: pointer;
 		z-index: 15;
 	}
-	
+
 	#backToTop:hover {
 		background: rgba(255, 255, 255, 0.1);
 	}
-	
+
 	#selection-menu a.active {
-    color: #66ccff;
-    text-decoration: underline;
+		color: #66ccff;
+		text-decoration: underline;
+	}
+
+	/* Carousel Mode Styles */
+	#list.carousel-mode {
+		position: relative;
+		height: 500px;
+		/* Fallback for calc */
+		height: calc(100vh - 190px);
+		overflow: hidden;
+		display: block;
+		/* No flexbox for PS3 */
+	}
+
+	#list.carousel-mode .game-tile {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 600px;
+		padding: 10px;
+		/* Fixed height for centering */
+		margin-left: -300px;
+		/* Half width */
+		margin-top: -225px;
+		/* Half height */
+
+		-webkit-transition: left 0.5s ease, opacity 0.5s ease, -webkit-transform 0.5s ease;
+		transition: left 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+
+		opacity: 0;
+		z-index: 0;
+
+		-webkit-transform: scale(0.8);
+		transform: scale(0.8);
+
+		pointer-events: none;
+
+		/* Content centering without flexbox */
+		text-align: center;
+	}
+
+	#list.carousel-mode .game-tile img {
+		max-height: 55%;
+		width: auto;
+		object-fit: contain;
+		margin-bottom: 10px;
+		display: block;
+		margin: 0 auto 10px auto;
+	}
+
+	#list.carousel-mode .game-tile .title {
+		font-size: 1.4em;
+		height: auto;
+		max-width: 100%;
+		margin-bottom: 5px;
+		line-height: 1.2;
+	}
+
+	#list.carousel-mode .game-tile .title-id,
+	#list.carousel-mode .game-tile .file-size,
+	#list.carousel-mode .game-tile .download-links {
+		font-size: 1.1em;
+	}
+
+	#list.carousel-mode .game-tile.active {
+		opacity: 1;
+		z-index: 30;
+		left: 50%;
+
+		-webkit-transform: scale(1);
+		transform: scale(1);
+
+		pointer-events: auto;
+	}
+
+	#list.carousel-mode .game-tile.prev {
+		opacity: 0.9;
+		z-index: 20;
+		left: 28%;
+
+		-webkit-transform: scale(0.65);
+		transform: scale(0.65);
+
+		pointer-events: auto;
+		cursor: pointer;
+	}
+
+	#list.carousel-mode .game-tile.next {
+		opacity: 0.9;
+		z-index: 20;
+		left: 72%;
+
+		-webkit-transform: scale(0.65);
+		transform: scale(0.65);
+
+		pointer-events: auto;
+		cursor: pointer;
+	}
+
+	#list.carousel-mode .game-tile.prev-2 {
+		opacity: 0.7;
+		z-index: 10;
+		left: 12%;
+
+		-webkit-transform: scale(0.45);
+		transform: scale(0.45);
+
+		pointer-events: auto;
+		cursor: pointer;
+	}
+
+	#list.carousel-mode .game-tile.next-2 {
+		opacity: 0.7;
+		z-index: 10;
+		left: 88%;
+
+		-webkit-transform: scale(0.45);
+		transform: scale(0.45);
+
+		pointer-events: auto;
+		cursor: pointer;
+	}
+
+	#list.carousel-mode .game-tile.hidden {
+		opacity: 0;
+		z-index: 1;
+		left: -100%;
+
+		-webkit-transform: scale(0.3);
+		transform: scale(0.3);
+
+		pointer-events: none;
 	}
 </style>
 
 <body>
-    <header>
-        <a href="">PlayStation&trade; Network Database</a>
-        <div id="count" aria-live="polite" role="status">Loading</div>
-        <form name="engine" onsubmit="setFilter('search', this.query.value, null); return false;">
-            <input type="search" name="query" size="25" placeholder="Search">
-            <input type="submit" name="send" value="Search" disabled>
-			<input type="button" id="license-link-rainbow" value="License Pack" onclick="window.location.href='https://github.com/PS3-Pro/License-Files/releases/download/Licenses/License_Pack_Bin.pkg'">
+	<header>
+		<a href="">PlayStation&trade; Network Database</a>
+		<div id="count" aria-live="polite" role="status">Loading</div>
+		<form name="engine" onsubmit="setFilter('search', this.query.value, null); return false;">
+			<input type="search" name="query" size="25" placeholder="Search">
+			<input type="submit" name="send" value="Search" disabled>
+			<input type="button" id="license-link-rainbow" value="License Pack"
+				onclick="window.location.href='https://github.com/PS3-Pro/License-Files/releases/download/Licenses/License_Pack_Bin.pkg'">
 			<input type="button" name="fetch" value="Reload DB" onclick="triggerReload()">
-        </form>
-    </header>
+		</form>
+	</header>
 
 	<div id="selection-menu" aria-hidden="false">
-        <label><input type="checkbox" id="cat-avatars" onchange="toggleCategory('avatars')"> Avatars</label>
-        <label><input type="checkbox" id="cat-demos" onchange="toggleCategory('demos')"> Demos</label>
-        <label><input type="checkbox" id="cat-dlcs" onchange="toggleCategory('dlcs')"> DLCs</label>
-        <label><input type="checkbox" id="cat-games" checked onchange="toggleCategory('games')"> Games</label>
-        <label><input type="checkbox" id="cat-themes" onchange="toggleCategory('themes')"> Themes</label>
-    </div>
-    <div id="main" class="table">
-        <div class="sidebar table-cell" id="sidebar">
+		<label><input type="checkbox" id="cat-avatars" onchange="toggleCategory('avatars')"> Avatars</label>
+		<label><input type="checkbox" id="cat-demos" onchange="toggleCategory('demos')"> Demos</label>
+		<label><input type="checkbox" id="cat-dlcs" onchange="toggleCategory('dlcs')"> DLCs</label>
+		<label><input type="checkbox" id="cat-games" checked onchange="toggleCategory('games')"> Games</label>
+		<label><input type="checkbox" id="cat-themes" onchange="toggleCategory('themes')"> Themes</label>
+	</div>
+	<div id="main" class="table">
+		<div class="sidebar table-cell" id="sidebar">
 			<div class="sidebar-top-border"></div>
-            <div class="sidebar-heading-left">Filter</div>
-            <ul id="letters"></ul>
-        </div>
+			<div class="sidebar-heading-left">Filter</div>
+			<ul id="letters"></ul>
+		</div>
 
-        <div class="content table-cell">
-            <div id="list"></div>
-        </div>
+		<div class="content table-cell">
+			<div id="list"></div>
+		</div>
 
-        <div class="sidebar-right" id="sidebar-right">
+		<div class="sidebar-right" id="sidebar-right">
 			<div class="sidebar-right-top-border"></div>
-			
+
 			<div class="sidebar-heading-right">Region</div>
 			<br>
 
 			<ul id="region-links">
-				<li><label><input type="checkbox" id="region-ALL" checked onchange="toggleRegion('ALL')"> All</label></li>
+				<li><label><input type="checkbox" id="region-ALL" checked onchange="toggleRegion('ALL')"> All</label>
+				</li>
 				<li><label><input type="checkbox" id="region-US" onchange="toggleRegion('US')"> US</label></li>
 				<li><label><input type="checkbox" id="region-EU" onchange="toggleRegion('EU')"> EU</label></li>
 				<li><label><input type="checkbox" id="region-JP" onchange="toggleRegion('JP')"> JP</label></li>
 				<li><label><input type="checkbox" id="region-ASIA" onchange="toggleRegion('ASIA')"> ASIA</label></li>
 			</ul>
+
+			<div class="sidebar-heading-right" style="margin-top: 20px;">View</div>
+			<ul style="margin-top: 10px;">
+				<li><label><input type="checkbox" id="carousel-mode-toggle" onchange="toggleCarouselMode()">
+						Carousel</label></li>
+			</ul>
 		</div>
 
-    <button id="backToTop" onclick="scrollToTop()">&#8593; Top</button>
+		<button id="backToTop" onclick="scrollToTop()">&#8593; Top</button>
 
-	<script>
-function scrollToTop() {
-    window.scrollTo(0, 0);
-}
-
-function sort(lines, algo) {
-    for (var i = 0; i < lines.length; i++) {
-        for (var j = 0; j < lines.length - i - 1; j++) {
-            if (algo(lines[j], lines[j + 1])) {
-                var temp = lines[j];
-                lines[j] = lines[j + 1];
-                lines[j + 1] = temp;
-            }
-        }
-    }
-    return lines;
-}
-
-try {
-	var g_startupAlertMessage = null;
-    var g_letterFilter = "";
-    var g_regionFilter = ["ALL"]; // Array to support multiple regions
-    var g_categoryFilter = ["games"]; // Array to support multiple categories
-
-    var f = document.forms.engine;
-
-    var dbPaths = {
-        games: "../resources/database/games.tsv",
-        avatars: "../resources/database/avatars.tsv",
-        demos: "../resources/database/demos.tsv",
-        dlcs: "../resources/database/dlcs.tsv",
-        themes: "../resources/database/themes.tsv"
-    };
-
-    var DB = [];
-    var DB_CACHE = {}; // Cache for individual category databases
-
-	function makeRap(row) {
-		var hex = row[4];
-		var contentID = row[5];
-	
-		if (!hex) {
-			return "";
-		}
-		
-		if (hex == "NOT REQUIRED") {
-			return '<span style="color: lime;"> - RAP Not Required</span>';
-		}
-	
-		if (hex == "MISSING") {
-			return '<span style="color: red;"> - Missing RAP</span>';
-		}
-		
-		//return '<a download="' + row[1] + '-' + row[0] + '_00-' + hex + '.rap" href="http://yne.fr/psndl/' + hex + '.rap">RAP</a>';
-		return '<a download="' + contentID + '.rap" href="https://ps3-pro.github.io/License-Files/files/' + contentID + '.rap">RAP</a>';
-	}
-	
-	function formatFileSize(bytes) {
-		var safeBytesString = String(bytes).replace(/^\s+|\s+$/g, '');
-		var cleanedBytes = parseFloat(safeBytesString);
-
-		var colorStyle = 'style="color: #AAAAAA;"';
-
-		if (isNaN(cleanedBytes) || cleanedBytes <= 0) return '';
-
-		var GB = 1073741824; // 1024 * 1024 * 1024
-		var MB = 1048576;   // 1024 * 1024
-		var KB = 1024;      // 1024
-
-		if (cleanedBytes >= GB) {
-			var size = cleanedBytes / GB;
-			return '<span ' + colorStyle + '>(' + size.toFixed(2) + ' GB)</span>';
-		} else if (cleanedBytes >= MB) {
-			var size = cleanedBytes / MB;
-			return '<span ' + colorStyle + '>(' + size.toFixed(2) + ' MB)</span>';
-		} else if (cleanedBytes >= KB) {
-			var size = cleanedBytes / KB;
-			return '<span ' + colorStyle + '>(' + size.toFixed(2) + ' KB)</span>';
-		} else {
-			return '<span ' + colorStyle + '>(' + cleanedBytes + ' B)</span>';
-		}
-	}
-
-    function loadDatabase(category, callback) {
-        if (DB_CACHE[category]) {
-            callback(DB_CACHE[category]);
-            return;
-        }
-
-        var xhr = new XMLHttpRequest();
-        xhr.onabort = xhr.ontimeout = xhr.onerror = function () {
-            alert("Error loading " + category + " database");
-        };
-        xhr.onload = function () {
-            if (xhr.status != 200) {
-                alert("Status " + xhr.status + " loading " + category);
-                return;
-            }
-
-            var lines = xhr.responseText.split("\n");
-            var categoryData = [];
-            for (var i = 1; i < lines.length; i++) { // Skip header row
-                if (lines[i].trim()) {
-                    var row = lines[i].split("\t");
-                    row.push(category); // Add category as last element
-                    categoryData.push(row);
-                }
-            }
-
-            DB_CACHE[category] = categoryData;
-            if (window.localStorage) {
-                localStorage.setItem('DB_' + category, JSON.stringify(categoryData));
-            }
-
-            callback(categoryData);
-        };
-
-        xhr.open('GET', dbPaths[category]);
-        xhr.send();
-    }
-
-    function loadSelectedDatabases() {
-        f.fetch.disabled = true;
-        DB = [];
-
-        var loadedCount = 0;
-        var totalToLoad = g_categoryFilter.length;
-
-        function onCategoryLoaded(categoryData) {
-            DB = DB.concat(categoryData);
-            loadedCount++;
-
-            if (loadedCount >= totalToLoad) {
-                // All databases loaded, sort and render
-                DB.sort(function(a, b) {
-                    return a[2].localeCompare(b[2]); // Sort by name
-                });
-
-                f.fetch.disabled = false;
-                render();
-
-                if (g_startupAlertMessage) {
-                    setTimeout(function() {
-                        alert(g_startupAlertMessage);
-                        g_startupAlertMessage = null;
-                    }, 1000);
-                }
-            }
-        }
-
-        // Check localStorage first
-        for (var i = 0; i < g_categoryFilter.length; i++) {
-            var category = g_categoryFilter[i];
-            var cachedData = window.localStorage ? JSON.parse(localStorage.getItem('DB_' + category) || 'null') : null;
-            if (cachedData) {
-                DB_CACHE[category] = cachedData;
-                onCategoryLoaded(cachedData);
-            } else {
-                loadDatabase(category, onCategoryLoaded);
-            }
-        }
-    }
-
-    function fetchDB() {
-        // Legacy function - now loads all selected databases
-        loadSelectedDatabases();
-    }
-
-    function render() {
-		//f.fetch.type = window.localStorage ? 'button' : 'hidden'; //hides Reload DB button on PS3
-		f.send.disabled = DB.length == 0;
-		f.query.placeholder = DB.length + " items found";
-
-		var regionRule;
-		if (g_regionFilter.includes("ALL") || g_regionFilter.length === 0) {
-			regionRule = new RegExp(".*");
-		} else {
-			regionRule = new RegExp("^(" + g_regionFilter.join('|') + ")$", 'i');
-		}
-
-		var letterRule;
-		var isSearch = (g_letterFilter.length > 0 && g_letterFilter[0] != '^');
-
-		if (g_letterFilter == "") {
-			letterRule = new RegExp(".*");
-		} else if (isSearch) {
-			letterRule = new RegExp(g_letterFilter, 'i');
-		} else {
-			letterRule = new RegExp(g_letterFilter, 'i');
-		}
-
-		var maxResults = isSearch ? 99 : 999;
-		var matches = [];
-		for (var i = 0; i < DB.length && matches.length < maxResults; i++) {
-			var row = DB[i];
-			if (!row[2]) continue;
-
-			var nameMatches = false;
-			var regionMatches = false;
-
-			if (g_regionFilter.includes("ALL") || (row[1] && regionRule.test(row[1]))) {
-				regionMatches = true;
+		<script>
+			// Polyfills for ancient browsers (NetFront)
+			if (!Array.prototype.filter) {
+				Array.prototype.filter = function (fun /*, thisp*/) {
+					var len = this.length;
+					if (typeof fun != "function") throw new TypeError();
+					var res = new Array();
+					var thisp = arguments[1];
+					for (var i = 0; i < len; i++) {
+						if (i in this) {
+							var val = this[i];
+							if (fun.call(thisp, val, i, this)) res.push(val);
+						}
+					}
+					return res;
+				};
 			}
 
-			if (g_letterFilter == "") {
-				nameMatches = true;
-			} else if (isSearch) {
-				if ((row[2] && letterRule.test(row[2])) || row[0] == g_letterFilter) {
-					nameMatches = true;
+			if (!Array.prototype.map) {
+				Array.prototype.map = function (callback, thisArg) {
+					var T, A, k;
+					if (this == null) throw new TypeError(" this is null or not defined");
+					var O = Object(this);
+					var len = O.length >>> 0;
+					if (typeof callback !== "function") throw new TypeError(callback + " is not a function");
+					if (arguments.length > 1) T = thisArg;
+					A = new Array(len);
+					k = 0;
+					while (k < len) {
+						var kValue, mappedValue;
+						if (k in O) {
+							kValue = O[k];
+							mappedValue = callback.call(T, kValue, k, O);
+							A[k] = mappedValue;
+						}
+						k++;
+					}
+					return A;
+				};
+			}
+
+			if (!Array.prototype.indexOf) {
+				Array.prototype.indexOf = function (searchElement, fromIndex) {
+					var k;
+					if (this == null) throw new TypeError('"this" is null or not defined');
+					var O = Object(this);
+					var len = O.length >>> 0;
+					if (len === 0) return -1;
+					var n = +fromIndex || 0;
+					if (Math.abs(n) === Infinity) n = 0;
+					if (n >= len) return -1;
+					k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
+					while (k < len) {
+						if (k in O && O[k] === searchElement) return k;
+						k++;
+					}
+					return -1;
+				};
+			}
+
+			function scrollToTop() {
+				window.scrollTo(0, 0);
+			}
+
+			function sort(lines, algo) {
+				for (var i = 0; i < lines.length; i++) {
+					for (var j = 0; j < lines.length - i - 1; j++) {
+						if (algo(lines[j], lines[j + 1])) {
+							var temp = lines[j];
+							lines[j] = lines[j + 1];
+							lines[j + 1] = temp;
+						}
+					}
 				}
-			} else {
-				if (row[2] && letterRule.test(row[2])) {
-					nameMatches = true;
+				return lines;
+			}
+
+			try {
+				var g_startupAlertMessage = null;
+				var g_letterFilter = "";
+				var g_regionFilter = ["ALL"]; // Array to support multiple regions
+				var g_categoryFilter = ["games"]; // Array to support multiple categories
+				var g_carouselMode = false;
+				var g_carouselIndex = 0;
+				var g_currentMatches = [];
+
+				var f = document.forms.engine;
+
+				var dbPaths = {
+					games: "../resources/database/games.tsv",
+					avatars: "../resources/database/avatars.tsv",
+					demos: "../resources/database/demos.tsv",
+					dlcs: "../resources/database/dlcs.tsv",
+					themes: "../resources/database/themes.tsv"
+				};
+
+				var DB = [];
+				var DB_CACHE = {}; // Cache for individual category databases
+
+				function makeRap(row) {
+					var hex = row[4];
+					var contentID = row[5];
+
+					if (!hex) {
+						return "";
+					}
+
+					if (hex == "NOT REQUIRED") {
+						return '<span style="color: lime;"> - RAP Not Required</span>';
+					}
+
+					if (hex == "MISSING") {
+						return '<span style="color: red;"> - Missing RAP</span>';
+					}
+
+					//return '<a download="' + row[1] + '-' + row[0] + '_00-' + hex + '.rap" href="http://yne.fr/psndl/' + hex + '.rap">RAP</a>';
+					return '<a download="' + contentID + '.rap" href="https://ps3-pro.github.io/License-Files/files/' + contentID + '.rap">RAP</a>';
 				}
+
+				function formatFileSize(bytes) {
+					var safeBytesString = String(bytes).replace(/^\s+|\s+$/g, '');
+					var cleanedBytes = parseFloat(safeBytesString);
+
+					var colorStyle = 'style="color: #AAAAAA;"';
+
+					if (isNaN(cleanedBytes) || cleanedBytes <= 0) return '';
+
+					var GB = 1073741824; // 1024 * 1024 * 1024
+					var MB = 1048576;   // 1024 * 1024
+					var KB = 1024;      // 1024
+
+					if (cleanedBytes >= GB) {
+						var size = cleanedBytes / GB;
+						return '<span ' + colorStyle + '>(' + size.toFixed(2) + ' GB)</span>';
+					} else if (cleanedBytes >= MB) {
+						var size = cleanedBytes / MB;
+						return '<span ' + colorStyle + '>(' + size.toFixed(2) + ' MB)</span>';
+					} else if (cleanedBytes >= KB) {
+						var size = cleanedBytes / KB;
+						return '<span ' + colorStyle + '>(' + size.toFixed(2) + ' KB)</span>';
+					} else {
+						return '<span ' + colorStyle + '>(' + cleanedBytes + ' B)</span>';
+					}
+				}
+
+				function loadDatabase(category, callback) {
+					if (DB_CACHE[category]) {
+						callback(DB_CACHE[category]);
+						return;
+					}
+
+					var xhr = new XMLHttpRequest();
+					xhr.onabort = xhr.ontimeout = xhr.onerror = function () {
+						alert("Error loading " + category + " database");
+					};
+					xhr.onload = function () {
+						if (xhr.status != 200) {
+							alert("Status " + xhr.status + " loading " + category);
+							return;
+						}
+
+						var lines = xhr.responseText.split("\n");
+						var categoryData = [];
+						for (var i = 1; i < lines.length; i++) { // Skip header row
+							if (lines[i].trim()) {
+								var row = lines[i].split("\t");
+								row.push(category); // Add category as last element
+								categoryData.push(row);
+							}
+						}
+
+						DB_CACHE[category] = categoryData;
+						if (window.localStorage) {
+							localStorage.setItem('DB_' + category, JSON.stringify(categoryData));
+						}
+
+						callback(categoryData);
+					};
+
+					xhr.open('GET', dbPaths[category]);
+					xhr.send();
+				}
+
+				function loadSelectedDatabases() {
+					f.fetch.disabled = true;
+					DB = [];
+
+					var loadedCount = 0;
+					var totalToLoad = g_categoryFilter.length;
+
+					function onCategoryLoaded(categoryData) {
+						DB = DB.concat(categoryData);
+						loadedCount++;
+
+						if (loadedCount >= totalToLoad) {
+							// All databases loaded, sort and render
+							DB.sort(function (a, b) {
+								return a[2].localeCompare(b[2]); // Sort by name
+							});
+
+							f.fetch.disabled = false;
+							render();
+
+							if (g_startupAlertMessage) {
+								setTimeout(function () {
+									alert(g_startupAlertMessage);
+									g_startupAlertMessage = null;
+								}, 1000);
+							}
+						}
+					}
+
+					// Check localStorage first
+					for (var i = 0; i < g_categoryFilter.length; i++) {
+						var category = g_categoryFilter[i];
+						var cachedData = window.localStorage ? JSON.parse(localStorage.getItem('DB_' + category) || 'null') : null;
+						if (cachedData) {
+							DB_CACHE[category] = cachedData;
+							onCategoryLoaded(cachedData);
+						} else {
+							loadDatabase(category, onCategoryLoaded);
+						}
+					}
+				}
+
+				function fetchDB() {
+					// Legacy function - now loads all selected databases
+					loadSelectedDatabases();
+				}
+
+				function render() {
+					//f.fetch.type = window.localStorage ? 'button' : 'hidden'; //hides Reload DB button on PS3
+					f.send.disabled = DB.length == 0;
+					f.query.placeholder = DB.length + " items found";
+
+					var regionRule;
+					if (g_regionFilter.indexOf("ALL") !== -1 || g_regionFilter.length === 0) {
+						regionRule = new RegExp(".*");
+					} else {
+						regionRule = new RegExp("^(" + g_regionFilter.join('|') + ")$", 'i');
+					}
+
+					var letterRule;
+					var isSearch = (g_letterFilter.length > 0 && g_letterFilter[0] != '^');
+
+					if (g_letterFilter == "") {
+						letterRule = new RegExp(".*");
+					} else if (isSearch) {
+						letterRule = new RegExp(g_letterFilter, 'i');
+					} else {
+						letterRule = new RegExp(g_letterFilter, 'i');
+					}
+
+					var maxResults = isSearch ? 99 : 999;
+					var matches = [];
+					for (var i = 0; i < DB.length && matches.length < maxResults; i++) {
+						var row = DB[i];
+						if (!row[2]) continue;
+
+						var nameMatches = false;
+						var regionMatches = false;
+
+						if (g_regionFilter.indexOf("ALL") !== -1 || (row[1] && regionRule.test(row[1]))) {
+							regionMatches = true;
+						}
+
+						if (g_letterFilter == "") {
+							nameMatches = true;
+						} else if (isSearch) {
+							if ((row[2] && letterRule.test(row[2])) || row[0] == g_letterFilter) {
+								nameMatches = true;
+							}
+						} else {
+							if (row[2] && letterRule.test(row[2])) {
+								nameMatches = true;
+							}
+						}
+
+						if (nameMatches && regionMatches) {
+							matches.push(row);
+						}
+					}
+
+					sort(matches, function (a, b) { return a[2] > b[2]; });
+					g_currentMatches = matches;
+
+					var html = "";
+					for (var i = 0; i < matches.length; i++) {
+						var a = matches[i];
+
+						var sizeIndex = a.length - 1;
+						var rawSize = a[sizeIndex];
+
+						if (isNaN(parseFloat(rawSize)) && sizeIndex > 0) {
+							rawSize = a[sizeIndex - 1];
+						}
+
+						var fileSize = formatFileSize(rawSize);
+						var coverUrl = 'https://raw.githubusercontent.com/SvenGDK/PSMT-Covers/refs/heads/main/PS3/' + a[0] + '.JPG';
+
+						if (a[3] && a[3] !== "MISSING") {
+							var category = a[a.length - 1]; // Category is the last element
+							var categoryBadge = '<span style="background: rgba(0,0,0,0.6); color: #fff; padding: 1px 4px; border-radius: 3px; font-size: 0.6em; margin-left: 4px;">' + category.toUpperCase() + '</span>';
+
+							var regionFlag = '';
+							var contentId = a[0];
+							if (contentId && contentId.length >= 4 && contentId.substring(0, 2).toUpperCase() === 'NP') {
+								var regionChar = contentId.charAt(2).toUpperCase();
+								var regionCode = '';
+
+								if (regionChar === 'U') {
+									regionCode = 'US';
+								} else if (regionChar === 'E') {
+									regionCode = 'EU';
+								} else if (regionChar === 'J') {
+									regionCode = 'JP';
+								} else if (regionChar === 'H') {
+									regionCode = 'HK';
+								}
+
+								if (regionCode) {
+									// Using flagcdn.com for flags. 
+									// US: us, EU: eu, JP: jp, HK: hk
+									var flagUrl = 'https://flagcdn.com/24x18/' + regionCode.toLowerCase() + '.png';
+									regionFlag = '<div class="region-flag" style="background-image: url(\'' + flagUrl + '\');" title="' + regionCode + '"></div>';
+								}
+							}
+
+							// Add onclick for carousel navigation
+							var onClickAttr = g_carouselMode ? 'onclick="navigateToTile(' + i + ')"' : '';
+
+							html += '<div class="game-tile" id="tile-' + i + '" ' + onClickAttr + '>' +
+								regionFlag +
+								'<img src="' + coverUrl + '" alt="' + a[2] + '" onerror="this.src=\'https://raw.githubusercontent.com/SvenGDK/PSMT-Covers/refs/heads/main/PS3/NPUB30323.JPG\'">' +
+								'<div class="title">' + a[2] + categoryBadge + '</div>' +
+								'<div class="title-id">[' + a[0] + ']</div>' +
+								'<div class="file-size">' + fileSize + '</div>' +
+								'<div class="download-links">' +
+								'<a href="' + a[3] + '">PKG</a> ' +
+								makeRap(a) +
+								'</div>' +
+								'</div>';
+						}
+					}
+
+					if (html === "") {
+						html = '<div class="game-tile" style="width: 100%;"><div class="title">No items found.</div></div>';
+					}
+
+					var listEl = document.getElementById('list');
+					listEl.innerHTML = html;
+
+					if (g_carouselMode) {
+						addClass(listEl, 'carousel-mode');
+						updateCarouselView();
+					} else {
+						removeClass(listEl, 'carousel-mode');
+					}
+
+					document.getElementById('count').textContent = "Displaying " + matches.length + " items | " + getCategoryDisplayText() + " | " + getRegionDisplayText();
+				}
+
+				function triggerReload() {
+					document.getElementById('list').innerHTML = '<div class="game-tile" style="width: 100%;"><div class="title">Reloading database... Please wait.</div></div>';
+					document.getElementById('count').textContent = "Reloading | " + getCategoryDisplayText() + " | " + getRegionDisplayText();
+
+					fetchDB();
+				}
+
+				function toggleRegion(region) {
+					var checkbox = document.getElementById('region-' + region);
+					var allCheckbox = document.getElementById('region-ALL');
+
+					if (region === 'ALL') {
+						// If "All" is checked, uncheck all others
+						if (checkbox.checked) {
+							g_regionFilter = ['ALL'];
+							document.getElementById('region-US').checked = false;
+							document.getElementById('region-EU').checked = false;
+							document.getElementById('region-JP').checked = false;
+							document.getElementById('region-ASIA').checked = false;
+						} else {
+							// If "All" is unchecked, check it back (prevent unchecking all)
+							checkbox.checked = true;
+						}
+					} else {
+						// If any specific region is toggled
+						allCheckbox.checked = false;
+
+						// Update g_regionFilter array
+						g_regionFilter = [];
+						if (document.getElementById('region-US').checked) g_regionFilter.push('US');
+						if (document.getElementById('region-EU').checked) g_regionFilter.push('EU');
+						if (document.getElementById('region-JP').checked) g_regionFilter.push('JP');
+						if (document.getElementById('region-ASIA').checked) g_regionFilter.push('ASIA');
+
+						// If no regions selected, default to ALL
+						if (g_regionFilter.length === 0) {
+							g_regionFilter = ['ALL'];
+							allCheckbox.checked = true;
+						}
+					}
+
+					document.getElementById('list').innerHTML = '<div class="game-tile" style="width: 100%;"><div class="title">Filtering databases... Please wait.</div></div>';
+					document.getElementById('count').textContent = "Filtering | " + getCategoryDisplayText() + " | " + getRegionDisplayText();
+
+					setTimeout(render, 1);
+				}
+
+				function toggleCategory(category) {
+					var checkbox = document.getElementById('cat-' + category);
+
+					// Update g_categoryFilter array
+					if (checkbox.checked) {
+						if (g_categoryFilter.indexOf(category) === -1) {
+							g_categoryFilter.push(category);
+						}
+					} else {
+						// Polyfill filter if needed, but here we can just loop or use the polyfill above
+						var newFilter = [];
+						for (var i = 0; i < g_categoryFilter.length; i++) {
+							if (g_categoryFilter[i] !== category) {
+								newFilter.push(g_categoryFilter[i]);
+							}
+						}
+						g_categoryFilter = newFilter;
+					}
+
+					// Ensure at least one category is selected
+					if (g_categoryFilter.length === 0) {
+						checkbox.checked = true;
+						g_categoryFilter.push(category);
+					}
+
+					document.getElementById('list').innerHTML = '<div class="game-tile" style="width: 100%;"><div class="title">Loading databases... Please wait.</div></div>';
+					document.getElementById('count').textContent = "Loading | " + getRegionDisplayText();
+
+					loadSelectedDatabases();
+				}
+
+				function addClass(el, className) {
+					if (el.classList) el.classList.add(className);
+					else if (!hasClass(el, className)) el.className += " " + className;
+				}
+
+				function removeClass(el, className) {
+					if (el.classList) el.classList.remove(className);
+					else if (hasClass(el, className)) {
+						var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+						el.className = el.className.replace(reg, ' ');
+					}
+				}
+
+				function hasClass(el, className) {
+					if (el.classList) return el.classList.contains(className);
+					return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+				}
+
+				function toggleCarouselMode() {
+					g_carouselMode = document.getElementById('carousel-mode-toggle').checked;
+					g_carouselIndex = 0; // Reset index when toggling
+					render();
+				}
+
+				window.navigateToTile = function (index) {
+					if (!g_carouselMode) return;
+					g_carouselIndex = index;
+					updateCarouselView();
+				};
+
+				function updateCarouselView() {
+					if (!g_carouselMode) return;
+
+					var list = document.getElementById('list');
+					if (!list) return;
+
+					var tiles = list.children;
+					var total = tiles.length;
+
+					if (total === 0) return;
+
+					// Debug: Alert the state for the first few tiles
+					// alert("Index: " + g_carouselIndex + ", Total: " + total);
+
+					// Ensure index is within bounds
+					if (g_carouselIndex < 0) g_carouselIndex = 0;
+					if (g_carouselIndex >= total) g_carouselIndex = total - 1;
+
+					for (var i = 0; i < total; i++) {
+						var tile = tiles[i];
+						// Remove all carousel classes first
+						removeClass(tile, 'active');
+						removeClass(tile, 'prev');
+						removeClass(tile, 'next');
+						removeClass(tile, 'prev-2');
+						removeClass(tile, 'next-2');
+						removeClass(tile, 'hidden');
+
+						if (i === g_carouselIndex) {
+							addClass(tile, 'active');
+						} else if (i === g_carouselIndex - 1) {
+							addClass(tile, 'prev');
+						} else if (i === g_carouselIndex + 1) {
+							addClass(tile, 'next');
+						} else if (i === g_carouselIndex - 2) {
+							addClass(tile, 'prev-2');
+						} else if (i === g_carouselIndex + 2) {
+							addClass(tile, 'next-2');
+						} else {
+							addClass(tile, 'hidden');
+						}
+					}
+				}
+
+				// Keyboard navigation
+				document.onkeydown = function (e) {
+					if (!g_carouselMode) return;
+
+					e = e || window.event;
+					var key = e.key || e.keyCode;
+
+					if (key === 'ArrowLeft' || key === 37) {
+						if (g_carouselIndex > 0) {
+							g_carouselIndex--;
+							updateCarouselView();
+						}
+					} else if (key === 'ArrowRight' || key === 39) {
+						if (g_carouselIndex < g_currentMatches.length - 1) {
+							g_carouselIndex++;
+							updateCarouselView();
+						}
+					}
+				};
+
+				function getRegionDisplayText() {
+					if (g_regionFilter.indexOf('ALL') !== -1) {
+						return 'All Regions';
+					} else {
+						return g_regionFilter.join(', ');
+					}
+				}
+
+				function getCategoryDisplayText() {
+					var categoryNames = {
+						'games': 'Games',
+						'avatars': 'Avatars',
+						'demos': 'Demos',
+						'dlcs': 'DLCs',
+						'themes': 'Themes'
+					};
+
+					if (g_categoryFilter.length === 5) {
+						return 'All Categories';
+					} else {
+						// Use map polyfill
+						return g_categoryFilter.map(function (cat) { return categoryNames[cat]; }).join(', ');
+					}
+				}
+
+				function setFilter(type, value, clickedElement) {
+					if (type == 'letter') {
+						g_letterFilter = value;
+						f.query.value = "";
+
+						var links = document.getElementById("letters").getElementsByTagName("a");
+						for (var i = 0; i < links.length; i++) { links[i].className = ""; }
+
+					} else if (type == 'search') {
+						g_letterFilter = value;
+
+						var links = document.getElementById("letters").getElementsByTagName("a");
+						for (var i = 0; i < links.length; i++) { links[i].className = ""; }
+					}
+
+					if (clickedElement) {
+						clickedElement.className = "active";
+					}
+
+					document.getElementById('list').innerHTML = '<div class="game-tile" style="width: 100%;"><div class="title">Filtering databases... Please wait.</div></div>';
+					document.getElementById('count').textContent = "Filtering | " + getCategoryDisplayText() + " | " + getRegionDisplayText();
+
+					setTimeout(render, 1);
+				}
+
+				function createLetterLinks() {
+					var links = '<a href="#" onclick="setFilter(\'letter\', \'^[0-9]\', this); return false;">[0-9]</a>';
+					for (var c = 65; c < 91; c++) {
+						links += '<a href="#" onclick="setFilter(\'letter\', \'^\'+this.innerHTML, this); return false;">' + String.fromCharCode(c) + '</a>';
+					}
+					document.getElementById("letters").innerHTML = links;
+				}
+
+				createLetterLinks();
+
+
+				loadSelectedDatabases();
+
+				var userAgent = navigator.userAgent;
+
+				var isChrome = /Chrome/.test(userAgent) && !/Edg/.test(userAgent) && !/OPR/.test(userAgent);
+				var isPS3 = /PS3|PlayStation 3|NetFront/i.test(userAgent);
+
+				if (isPS3) {
+					document.body.className += ' is-ps3';
+
+					var ps3Message = [
+						"Welcome to the PlayStation™ Database",
+						"",
+						"Save the downloads in System Storage > Packages and install via Package Manager."
+					].join("\n");
+					g_startupAlertMessage = ps3Message;
+
+				} else {
+					document.body.className += ' is-pc';
+
+					if (isChrome) {
+						var warningMessage = [
+							"Your browser blocks insecure downloads (HTTP links on an HTTPS page)",
+							"",
+							"For the download links to work, please use a different browser. (like Microsoft Edge or from a PS3™)"
+						].join("\n");
+						g_startupAlertMessage = warningMessage;
+					}
+				}
+
+				try {
+					var rainbowColors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#FFFFFF", "#9400D3"]; // Vermelho, Laranja, Amarelo, Verde, Azul, Roxo
+					var rainbowIndex = 0;
+
+					setInterval(function () {
+						var link = document.getElementById("license-link-rainbow");
+						if (link) {
+							link.style.color = rainbowColors[rainbowIndex];
+
+							rainbowIndex++;
+
+							if (rainbowIndex >= rainbowColors.length) {
+								rainbowIndex = 0;
+							}
+						}
+					}, 500);
+				} catch (e) {
+				}
+
+			} catch (a) {
+				alert(a);
 			}
+		</script>
+</body>
 
-			if (nameMatches && regionMatches) {
-				matches.push(row);
-			}
-		}
-
-	sort(matches, function(a, b) { return a[2] > b[2]; });
-	
-		var html = "";
-		for (var i = 0; i < matches.length; i++) {
-			var a = matches[i];
-
-			var sizeIndex = a.length - 1;
-			var rawSize = a[sizeIndex];
-
-			if (isNaN(parseFloat(rawSize)) && sizeIndex > 0) {
-				rawSize = a[sizeIndex - 1];
-			}
-
-			var fileSize = formatFileSize(rawSize);
-			var coverUrl = 'https://raw.githubusercontent.com/SvenGDK/PSMT-Covers/refs/heads/main/PS3/' + a[0] + '.JPG';
-
-			if (a[3] && a[3] !== "MISSING") {
-				var category = a[a.length - 1]; // Category is the last element
-				var categoryBadge = '<span style="background: rgba(0,0,0,0.6); color: #fff; padding: 1px 4px; border-radius: 3px; font-size: 0.6em; margin-left: 4px;">' + category.toUpperCase() + '</span>';
-
-				html += '<div class="game-tile">' +
-					'<img src="' + coverUrl + '" alt="' + a[2] + '" onerror="this.src=\'https://raw.githubusercontent.com/SvenGDK/PSMT-Covers/refs/heads/main/PS3/NPUB30323.JPG\'">' +
-					'<div class="title">' + a[2] + categoryBadge + '</div>' +
-					'<div class="title-id">[' + a[0] + ']</div>' +
-					'<div class="file-size">' + fileSize + '</div>' +
-					'<div class="download-links">' +
-						'<a href="' + a[3] + '">PKG</a> ' +
-						makeRap(a) +
-					'</div>' +
-				'</div>';
-			}
-		}
-
-		if (html === "") {
-			html = '<div class="game-tile" style="grid-column: 1 / -1; min-height: auto;"><div class="title">No items found.</div></div>';
-		}
-		
-		document.getElementById('list').innerHTML = html;
-		document.getElementById('count').textContent = "Displaying " + matches.length + " items | " + getCategoryDisplayText() + " | " + getRegionDisplayText();
-	}
-	
-	function triggerReload() {
-		document.getElementById('list').innerHTML = '<div class="game-tile" style="grid-column: 1 / -1; min-height: auto;"><div class="title">Reloading database... Please wait.</div></div>';
-		document.getElementById('count').textContent = "Reloading | " + getCategoryDisplayText() + " | " + getRegionDisplayText();
-
-		fetchDB();
-	}
-	
-	function toggleRegion(region) {
-		var checkbox = document.getElementById('region-' + region);
-		var allCheckbox = document.getElementById('region-ALL');
-
-		if (region === 'ALL') {
-			// If "All" is checked, uncheck all others
-			if (checkbox.checked) {
-				g_regionFilter = ['ALL'];
-				document.getElementById('region-US').checked = false;
-				document.getElementById('region-EU').checked = false;
-				document.getElementById('region-JP').checked = false;
-				document.getElementById('region-ASIA').checked = false;
-			} else {
-				// If "All" is unchecked, check it back (prevent unchecking all)
-				checkbox.checked = true;
-			}
-		} else {
-			// If any specific region is toggled
-			allCheckbox.checked = false;
-
-			// Update g_regionFilter array
-			g_regionFilter = [];
-			if (document.getElementById('region-US').checked) g_regionFilter.push('US');
-			if (document.getElementById('region-EU').checked) g_regionFilter.push('EU');
-			if (document.getElementById('region-JP').checked) g_regionFilter.push('JP');
-			if (document.getElementById('region-ASIA').checked) g_regionFilter.push('ASIA');
-
-			// If no regions selected, default to ALL
-			if (g_regionFilter.length === 0) {
-				g_regionFilter = ['ALL'];
-				allCheckbox.checked = true;
-			}
-		}
-
-		document.getElementById('list').innerHTML = '<div class="game-tile" style="grid-column: 1 / -1; min-height: auto;"><div class="title">Filtering databases... Please wait.</div></div>';
-		document.getElementById('count').textContent = "Filtering | " + getCategoryDisplayText() + " | " + getRegionDisplayText();
-
-		setTimeout(render, 1);
-	}
-
-function toggleCategory(category) {
-		var checkbox = document.getElementById('cat-' + category);
-
-		// Update g_categoryFilter array
-		if (checkbox.checked) {
-			if (!g_categoryFilter.includes(category)) {
-				g_categoryFilter.push(category);
-			}
-		} else {
-			g_categoryFilter = g_categoryFilter.filter(cat => cat !== category);
-		}
-
-		// Ensure at least one category is selected
-		if (g_categoryFilter.length === 0) {
-			checkbox.checked = true;
-			g_categoryFilter.push(category);
-		}
-
-		document.getElementById('list').innerHTML = '<div class="game-tile" style="grid-column: 1 / -1; min-height: auto;"><div class="title">Loading databases... Please wait.</div></div>';
-		document.getElementById('count').textContent = "Loading | " + getRegionDisplayText();
-
-		loadSelectedDatabases();
-	}
-
-function getRegionDisplayText() {
-		if (g_regionFilter.includes('ALL')) {
-			return 'All Regions';
-		} else {
-			return g_regionFilter.join(', ');
-		}
-	}
-
-function getCategoryDisplayText() {
-		var categoryNames = {
-			'games': 'Games',
-			'avatars': 'Avatars',
-			'demos': 'Demos',
-			'dlcs': 'DLCs',
-			'themes': 'Themes'
-		};
-
-		if (g_categoryFilter.length === 5) {
-			return 'All Categories';
-		} else {
-			return g_categoryFilter.map(cat => categoryNames[cat]).join(', ');
-		}
-	}
-
-function setFilter(type, value, clickedElement) {
-    	if (type == 'letter') {
-			g_letterFilter = value;
-			f.query.value = "";
-
-			var links = document.getElementById("letters").getElementsByTagName("a");
-			for(var i=0; i<links.length; i++) { links[i].className = ""; }
-
-		} else if (type == 'search') {
-			g_letterFilter = value;
-
-			var links = document.getElementById("letters").getElementsByTagName("a");
-			for(var i=0; i<links.length; i++) { links[i].className = ""; }
-		}
-
-		if (clickedElement) {
-			clickedElement.className = "active";
-		}
-
-		document.getElementById('list').innerHTML = '<div class="game-tile" style="grid-column: 1 / -1; min-height: auto;"><div class="title">Filtering databases... Please wait.</div></div>';
-		document.getElementById('count').textContent = "Filtering | " + getCategoryDisplayText() + " | " + getRegionDisplayText();
-
-		setTimeout(render, 1);
-	}
-
-    function createLetterLinks() {
-        var links = '<a href="#" onclick="setFilter(\'letter\', \'^[0-9]\', this); return false;">[0-9]</a>';
-        for (var c = 65; c < 91; c++) {
-            links += '<a href="#" onclick="setFilter(\'letter\', \'^\'+this.innerHTML, this); return false;">' + String.fromCharCode(c) + '</a>';
-        }
-        document.getElementById("letters").innerHTML = links;
-    }
-
-    createLetterLinks();
-
-
-        loadSelectedDatabases();
-		
-		var userAgent = navigator.userAgent;
-
-		var isChrome = /Chrome/.test(userAgent) && !/Edg/.test(userAgent) && !/OPR/.test(userAgent);
-		
-		var isPS3 = /PS3/.test(userAgent);
-		
-		
-		var userAgent = navigator.userAgent;
-
-		var isChrome = /Chrome/.test(userAgent) && !/Edg/.test(userAgent) && !/OPR/.test(userAgent);
-		var isPS3 = /PS3|PlayStation 3|NetFront/i.test(userAgent);
-
-		if (isPS3) {
-			document.body.className += ' is-ps3';
-			
-			var ps3Message = [
-				"Welcome to the PlayStation™ Database", 
-				"",
-				"Save the downloads in System Storage > Packages and install via Package Manager."
-			].join("\n");
-			g_startupAlertMessage = ps3Message;
-			
-		} else {
-			document.body.className += ' is-pc'; 
-
-			if (isChrome) {
-				var warningMessage = [
-					"Your browser blocks insecure downloads (HTTP links on an HTTPS page)",
-					"",
-					"For the download links to work, please use a different browser. (like Microsoft Edge or from a PS3™)"
-				].join("\n");
-				g_startupAlertMessage = warningMessage;
-			}
-		}
-		
-		try {
-            var rainbowColors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#FFFFFF", "#9400D3"]; // Vermelho, Laranja, Amarelo, Verde, Azul, Roxo
-            var rainbowIndex = 0;
-            
-            setInterval(function() {
-                var link = document.getElementById("license-link-rainbow");
-                if (link) {
-                    link.style.color = rainbowColors[rainbowIndex];
-                    
-                    rainbowIndex++;
-                    
-                    if (rainbowIndex >= rainbowColors.length) {
-                        rainbowIndex = 0;
-                    }
-                }
-            }, 500); 
-        } catch (e) {
-        }
-        
-    } catch (a) {
-        alert(a);
-    }
-</script>
-    </body>
 </html>
